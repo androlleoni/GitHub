@@ -1,0 +1,72 @@
+package ch.makery.Project_1;
+
+import java.io.IOException;
+import java.util.List;
+
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.chart.BarChart;
+import javafx.scene.chart.CategoryAxis;
+import javafx.scene.chart.NumberAxis;
+import javafx.scene.chart.XYChart;
+import javafx.stage.Stage;
+
+public class BarChartShower {
+	List <String> name;
+	List <String> p_word; //parola piu' frequente
+	List <Integer> frequence; //frequenza p_word (quante volte compare in media secondo me)
+	List <Float> min,max,average,trend; 
+	CategoryAxis xAxis = new CategoryAxis();
+    NumberAxis yAxis = new NumberAxis();
+	BarChart<String,Number> br = 
+            new BarChart<>(xAxis,yAxis);
+	
+    ////////////////////
+	 final static String austria = "Austria";
+	    final static String brazil = "Brazil";
+	    final static String france = "France";
+	    final static String italy = "Italy";
+	    final static String usa = "USA";
+	////////////////////
+    public BarChartShower() throws IOException{
+        BarChartShow();
+
+    }
+    private void BarChartShow() throws IOException {
+     
+   	 Stage primaryStage = new Stage();
+   		Parent root = FXMLLoader.load(getClass().getResource("BarChart.fxml"));
+   		Scene scene = new Scene(root);
+   		BarChart br = (BarChart)(root.getChildrenUnmodifiable().get(0));
+   		System.out.println(br.getId());
+   		primaryStage.setScene(scene);
+   		primaryStage.setTitle("Bar Char");
+   		BarChartSet();
+   		primaryStage.show();
+
+   }
+    private void BarChartSet(){
+    	
+    	XYChart.Series  series1 = new XYChart.Series();
+    	series1.setName("FILE1");       
+        series1.getData().add(new XYChart.Data(austria, 25601.34));
+        series1.getData().add(new XYChart.Data(brazil, 20148.82));
+        series1.getData().add(new XYChart.Data(france, 10000));
+        series1.getData().add(new XYChart.Data(italy, 35407.15));
+        series1.getData().add(new XYChart.Data(usa, 12000));      
+        
+        XYChart.Series series2 = new XYChart.Series();
+        series2.setName("FILE2");
+        series2.getData().add(new XYChart.Data(austria, 57401.85));
+        series2.getData().add(new XYChart.Data(brazil, 41941.19));
+        series2.getData().add(new XYChart.Data(france, 45263.37));
+        series2.getData().add(new XYChart.Data(italy, 117320.16));
+        series2.getData().add(new XYChart.Data(usa, 14845.27));
+        br.getData().addAll(series1, series2);
+        
+ 
+    	
+    }
+   
+}

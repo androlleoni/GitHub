@@ -1,0 +1,9 @@
+package ch.makery.Project_1;
+
+public class Analysis {
+String contents=null;
+String p_word=null;
+int frequence = 0;
+float min = 0 ,max = 0, average = 0,trend = 0; 
+}
+

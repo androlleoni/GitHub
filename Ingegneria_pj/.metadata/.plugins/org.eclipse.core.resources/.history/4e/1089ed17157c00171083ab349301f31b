@@ -1,0 +1,11 @@
+package ch.makery.Project_1;
+
+import javafx.scene.Scene;
+import javafx.scene.chart.CategoryAxis;
+import javafx.scene.chart.NumberAxis;
+import javafx.scene.chart.XYChart;
+import javafx.stage.Stage;
+
+public class BarChart {
+   
+}
